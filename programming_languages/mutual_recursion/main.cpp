@@ -1,8 +1,13 @@
 #include <iostream>
 
+double mutual1(int);
 double mutual2(int a)
 {
-    if (a > 0) return 3;
+    if (a > 0)
+    {
+        double m2 = mutual1(a-1);
+        return m2;
+    }
     else return 1;
 }
 

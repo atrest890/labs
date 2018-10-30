@@ -26,14 +26,23 @@ int main()
 //    auto pf = &foo;
 //    pf + 1;
 
-    int var = 12;
-    int *ptr1;
-    ptr1 = &var;
-    int **ptr2 = &ptr1;
-    int ***ptr3 = &ptr2;
+//    int var = 12;
+//    int *ptr1;
+//    ptr1 = &var;
+//    int **ptr2 = &ptr1;
+//    int ***ptr3 = &ptr2;
 
-    std::cout  << std::endl;
-    std::cout << "&ptr2 = " <<
+//    std::cout  << "***ptr3: " << ***ptr3 << std::endl;
+//    std::cout << "**ptr2:  " << **ptr2 << std::endl;
+//    std::cout << "*ptr1: " << *ptr1 << std::endl;
+
+    int var = 5;
+    int *ptr = new int(5);
+    int &ref = var;
+    std::cout << "ref: " << ref << std::endl;
+    std::cout << "&ref: " << &ref << std::endl;
+    std::cout << "ptr: " << ptr << std::endl;
+    std::cout << "*ptr: " << *ptr << std::endl;
 
     return 0;
 }
