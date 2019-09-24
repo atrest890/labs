@@ -17,6 +17,26 @@ def getListFromStr(string):
     return [x for x in string]
 
 
+def getMatricesFromPlaintext(plaintext, key_size):
+    matrices = []
+    n = m.sqrt(key_size)
+
+    while int( len(plaintext) / key_size ) == 0:
+        plaintext.append( ALPHABET[28] )
+
+    for symbol in plaintext:
+        row = []
+        i = 0
+
+        while i != n:
+            row.append( ALPHABET.index(symbol) )
+            i += 1
+        
+        matrices.append(row)
+
+    return matrices
+
+
 def getKeyMatrix(key):
     n = m.sqrt( len(key) ) # matrix size
     matrix = []
@@ -25,7 +45,7 @@ def getKeyMatrix(key):
         row = []
         i = 0
         while i != n:
-            row.append(value)
+            row.append( ALPHABET.index(value) )
             i += 1
         matrix.append(row)
 
