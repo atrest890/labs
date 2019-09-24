@@ -7,8 +7,8 @@ ALPHABET = ['a', 'b', 'c', 'd',
             'm', 'n', 'o', 'p',  
             'q', 'r', 's', 't', 
             'u', 'v', 'w', 'x', 
-            'y', 'z', '.', ',',
-            ' ']
+            'y', 'z', ' ', ',',
+            '.']
 
 POWER = len(ALPHABET)
 
@@ -18,36 +18,34 @@ def getListFromStr(string):
 
 
 def getPlainMatrix(plaintext, key_size):
-    matrices = []
-    n = m.sqrt(key_size)
+    matrix = []
+    n = int( m.sqrt(key_size) )
+
+    index1 = 0
+    index2 = n
 
     while int( len(plaintext) / key_size ) == 0:
-        plaintext += ALPHABET[28]
+        plaintext += ALPHABET[26]
 
-    for symbol in plaintext:
-        row = []
-        i = 0
+    while index1 != len(plaintext):
+        matrix.append( [ ALPHABET.index(x) for x in plaintext[index1 : index2] ] )
+        index1 = index2
+        index2 += n
 
-        while i != n:
-            row.append( ALPHABET.index(symbol) )
-            i += 1
-        
-        matrices.append(row)
-
-    return matrices
+    return matrix
 
 
 def getKeyMatrix(key):
-    n = int( m.sqrt( len(key) ) ) # matrix size
+    n = int( m.sqrt( len(key) ) )
     matrix = []
 
     index1 = 0
     index2 = n
 
     while index1 != len(key):
-        matrix.append( key[index1: index2] )
+        matrix.append( [ ALPHABET.index(x) for x in key[index1 : index2] ] )
         index1 = index2
-        index2 = index2 + n
+        index2 += n
 
     return matrix
 
@@ -58,9 +56,9 @@ def hillEncrypt(plaintext, key):
     encrypted_text = ''
 
     for row in plain_matrix:
-        mult_matrix = np.dot(row, key_matrix)
-        new_matrix = [ x % len(ALPHABET) for x in mult_matrix]
-        encrypted_text += ''.join(new_matrix)
+        mult_matrix = np.dot(key_matrix, row)
+        new_matrix = [x % POWER for x in mult_matrix]
+        encrypted_text += ''.join( [ALPHABET[x] for x in new_matrix] )
         
     return encrypted_text
 
@@ -83,6 +81,8 @@ while True:
         break
 
 encrypedText = hillEncrypt(plaintext, getListFromStr(key))
+
+print( "Encrypted text: {0}".format(encrypedText) )
 
 
 
