@@ -17,7 +17,7 @@ def getListFromStr(string):
     return [x for x in string]
 
 
-def getMatricesFromPlaintext(plaintext, key_size):
+def getPlainMatrix(plaintext, key_size):
     matrices = []
     n = m.sqrt(key_size)
 
@@ -53,8 +53,10 @@ def getKeyMatrix(key):
 
 
 def hillEncrypt(plaintext, key):
-    pass
+    key_matrix = getKeyMatrix(key)
+    plain_matrix = getPlainMatrix(plaintext, len(key))
 
+    
 
 
 def hillDecrypted():
