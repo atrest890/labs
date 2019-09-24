@@ -12,13 +12,13 @@ ALPHABET = ['a', 'b', 'c', 'd',
 
 POWER = len(ALPHABET)
 
+
 def getListFromStr(string):
     return [x for x in string]
-    
+
 
 def getKeyMatrix(key):
     n = m.sqrt( len(key) ) # matrix size
-
     matrix = []
 
     for value in key:
@@ -29,7 +29,7 @@ def getKeyMatrix(key):
             i += 1
         matrix.append(row)
 
-    
+    return np.array(matrix, dtype=int)
 
 
 def hillEncrypt(plaintext, key):
