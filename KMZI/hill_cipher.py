@@ -22,7 +22,7 @@ def getPlainMatrix(plaintext, key_size):
     n = m.sqrt(key_size)
 
     while int( len(plaintext) / key_size ) == 0:
-        plaintext.append( ALPHABET[28] )
+        plaintext += ALPHABET[28]
 
     for symbol in plaintext:
         row = []
@@ -38,16 +38,16 @@ def getPlainMatrix(plaintext, key_size):
 
 
 def getKeyMatrix(key):
-    n = m.sqrt( len(key) ) # matrix size
+    n = int( m.sqrt( len(key) ) ) # matrix size
     matrix = []
 
-    for value in key:
-        row = []
-        i = 0
-        while i != n:
-            row.append( ALPHABET.index(value) )
-            i += 1
-        matrix.append(row)
+    index1 = 0
+    index2 = n
+
+    while index1 != len(key):
+        matrix.append( key[index1: index2] )
+        index1 = index2
+        index2 = index2 + n
 
     return matrix
 
@@ -74,15 +74,15 @@ key = ''
 
 
 while True:
-    input("Input your text: ", plaintext)
-    input("Input your key: ", key)
+    plaintext = input("Input your text: ")
+    key = input("Input your key: ")
 
-    if m.sqrt(key) - int(m.sqrt(key)) != 0:
+    if m.sqrt( len(key) ) - int( m.sqrt( len(key) ) ) != 0:
         print("\nError: the length of your key is invalid - it must be a value from which the root can be extracted\n")
     else:
         break
 
-encrypedText = hillEncrypt(plaintext, key)
+encrypedText = hillEncrypt(plaintext, getListFromStr(key))
 
 
 
