@@ -1,0 +1,252 @@
+Back in the cloak-and-dagger days of secret intelligence work, Britain’s espionage agencies liked to recruit in the ivied colleges of Oxford and Cambridge, even if that brought them some of the most notorious turncoats of the 20th century, men like Kim Philby and other Cambridge spies who handed atom bomb secrets to the Soviet Union in the 1940s and 1950s before defecting to Moscow.
+In the Internet age, the spy catchers have been forced to go digital, democratic and, old-timers might say, outright pop. Their latest wheeze, causing a buzz on the Internet — and stirring a torrent of Web chat among people identifying themselves as hackers — is an online cryptographic puzzle that promises a fast track to recruitment as spies for those who solve it before the challenge expires on Dec. 11.
+According to traffic on Twitter, Facebook and scores of other Web sites, at least 50 people have solved the puzzle since it was posted unobtrusively last month. To all but practiced cryptographers, it looks baffling: a rectangular display of 160 letters and numbers, grouped in twos in blue against a black background, under the overline, “Can you crack it?” Beneath it, a digital clock ticks down the seconds left until the competition closes.
+The agency that posted the puzzle at www.canyoucrackit.co.uk is one of the oldest, and, espionage experts say, most successful eavesdropping organizations anywhere, Government Communications Headquarters, or GCHQ, located in a vast doughnut-shaped building surrounded by huge satellite dishes in parkland near Cheltenham, 120 miles west of London.
+Helped by a hand-in-glove relationship with its American counterpart, the National Security Agency, which provides access to data downloaded from a pervasive network of American spy satellites, GCHQ can hack into phone calls, e-mails and computers virtually anywhere in the world. With language experts speaking everything from Amharic to Kazakh and 70 tongues besides, it has played a crucial role in cracking some of the biggest terror plots against the West in recent years.
+Continue reading the main story
+Once decrypted, the agency’s online puzzle, through a process experts call steganography, yields a hidden message in the form of a keyword. Those who enter the keyword are led to a Web address, where they are greeted with a congratulatory note. It is signed by a group calling itself Cyber Security Specialists, a newly formed unit within the British agency that is responsible for combating the cyberespionage threat that British officials have listed alongside terrorism, organized crime, and drug and weapons smuggling among the nation’s biggest security threats.
+“So you did it,” says the congratulatory message. “Now this is where it gets interesting. Could you use your skills and ingenuity to combat terrorism and cyberthreats? As one of our experts, you’ll help protect our nation’s security and the lives of thousands.” Those interested are then invited to submit a formal job application, leading to interviews for a total of 35 jobs next spring.
+Some skeptics, believing there is nothing particularly innovative in the new world of spycraft beyond updated technologies, have noted that recruiting techniques used by the World War II code-breaking agency that was GCHQ’s predecessor included presenting candidates, many of them from Oxford and Cambridge, with cryptographic crossword puzzles. Other skeptics on the Internet have dismissed the GCHQ puzzle as too easy.
+One cyberenthusiast, Dave Neal, writing on the Web site theinquirer.net, dismissed the puzzle as “not cool, and not very professional.” He said that he and others working with him at the Web site “asked GCHQ if this was a hoax.”
+Newsletter Sign Up
+Continue reading the main story
+The Interpreter Newsletter
+Understand the world with sharp insight and commentary on the major news stories of the week.
+You agree to receive occasional updates and special offers for The New York Times's products and services.
+See Sample Privacy Policy Opt out or contact us anytime 
+The spy agency has insisted it is not. A spokesman described the puzzle as a follow-up on unusual methods it has used in the past to reach potential computer-age recruits who might escape traditional methods, which have included discreet advertisements in high-end magazines and newspapers. The newer tactics have included posting video content and downloadable information about the agency on the Web, and cyberpuzzles on popular video games like Call of Duty and Assassin’s Creed.
+“Code-cracking skills are vital to secure the very best talent and to support the GCHQ mission in its fight against cyberthreats,” the spokesman told The Daily Telegraph. “Our target audience is not typically attracted to traditional advertising methods. Their skills may be ideally suited to our work, and yet they may not understand how they could apply them to the working environment.”
+Many computer experts writing for British newspapers and Web sites suggested that the spy agency’s message, at least implicitly, was that it was looking for accomplished hackers, a community that has been bruised lately in the backwash from the scandal enveloping Rupert Murdoch’s newspaper empire.
+The agency, in listing the qualifications it requires of recruits, said it would accept only British citizens and would rule out anyone who had engaged in illegal hacking. But some of its other specifications suggested that it might not look askance at candidates who have trodden close to the legal line. While saying it was looking for “good people” with a strong sense of fairmindedness, it also emphasized the value of a buccaneering spirit.
+“In a game where our adversaries operate with no known rules and unknown boundary lines, you will be exploring the possibilities and inventing the seemingly impossible,” the agency said on its Web site.
+Those pressing the agency to lift its game have included Prime Minister David Cameron, whose government has noted GCHQ’s past inability to recruit and retain “a suitable cadre of Internet specialists,” partly because its entry salaries — averaging about $48,000, far less than what private companies offer for the same skills — are uncompetitive. William Hague, the foreign secretary, said recently that the government was the target of as many as 600 attacks on its computer systems every day.
+But judging by the response to the spy agency’s puzzle, the government faces an uphill struggle, partly because in the community of hackers, government itself is uncool, if not the enemy. One hacker going by the name Ady who entered a comment on the BBC’s Web site urged the agency to “stick to employing upper-class twits from Oxford and Cambridge.” Hackers, called “hobbyists” in the post, know that “governments are not really the sort of people you want to get involved with,” Ady said.
+Another contributor put the government’s problem — finding hackers to combat hackers — in a nutshell. “Hire Gary McKinnon,” the person wrote, referring to a Scottish hacker accused of intruding into nearly 100 Pentagon computer networks a decade ago. He is fighting extradition to the United States for what American officials have described as “the biggest military computer hack of all time.”
+
+
+It has been more than six decades since Warren Weaver, a pioneer in automated language translation, suggested applying code-breaking techniques to the challenge of interpreting a foreign language.
+
+In an oft-cited letter in 1947 to the mathematician Norbert Wiener, he wrote: “One naturally wonders if the problem of translation could conceivably be treated as a problem in cryptography. When I look at an article in Russian, I say: ‘This is really written in English, but it has been coded in some strange symbols. I will now proceed to decode.’ ”
+
+That insight led to a generation of statistics-based language programs like Google Translate — and, not so incidentally, to new tools for breaking codes that go back to the Middle Ages.
+
+Now a team of Swedish and American linguists has applied statistics-based translation techniques to crack one of the most stubborn of codes: the Copiale Cipher, a hand-lettered 105-page manuscript that appears to date from the late 18th century. They described their work at a meeting of the Association for Computational Linguistics in Portland, Ore.
+
+Discovered in an academic archive in the former East Germany, the elaborately bound volume of gold and green brocade paper holds 75,000 characters, a perplexing mix of mysterious symbols and Roman letters. The name comes from one of only two non-coded inscriptions in the document.
+Continue reading the main story
+Related Coverage
+
+    Found in Translation OCT. 24, 2011
+
+Kevin Knight, a computer scientist at the Information Sciences Institute at the University of Southern California, collaborated with Beata Megyesi and Christiane Schaefer of Uppsala University in Sweden to decipher the first 16 pages. They turn out to be a detailed description of a ritual from a secret society that apparently had a fascination with eye surgery and ophthalmology.
+
+It began as a weekend project this year, Dr. Knight said in an interview, adding: “I don’t have much experience in cryptography. My background is primarily in computational linguistics and machine translation.”
+
+Uncertain of the original language, the researchers went down several blind alleys before following their hunches. First, they assumed the Roman characters and not the abstract symbols contained all of the information.
+
+But when that approach failed, they figured that the code was what cryptographers call a homophonic cipher — a substitution code that does not have a straightforward correspondence between the original and encoded information. And they decided the original language was probably German.
+
+Eventually they concluded that the Roman letters were so-called nulls, meant to mislead the code breaker, and that the letters represented spaces between words made up of elaborate symbols. Another crucial discovery was that a colon indicated the doubling of the previous consonant.
+
+The researchers used language-translation techniques like expected word frequency to guess what a symbol might equal in German.
+Newsletter Sign Up
+Continue reading the main story
+Science Times
+
+We’ll bring you stories that capture the wonders of the human body, nature and the cosmos.
+You agree to receive occasional updates and special offers for The New York Times's products and services.
+
+    See Sample Privacy Policy Opt out or contact us anytime 
+
+“It turned out that we can apply a lot those techniques to code breaking,” Dr. Knight said.
+
+The work is being praised by other experts. “Cracking the Copiale Cipher was a neat bit of work by Kevin Knight and his collaborators,” said Nick Pelling, a British software designer and a security specialist who maintains Cipher Mysteries, a cryptography news blog.
+
+But while the cipher was a notable success, Dr. Knight and his colleagues have been frustrated by other, more impenetrable ciphers.
+
+“There are these books and ancient languages of real historical value that contain historical information that we just can’t get out yet, and that’s of interest to a lot of people,” he said in a filmed interview describing the Copiale project.
+
+The work has value to historians who are trying to understand the spread of political ideas. Secret societies were all the rage in the 18th century, Dr. Knight said, and they had an influence on both the American and French Revolutions. He recently shared the decoded Copiale text with Andreas Onnerfors, a historian at Lund University in Sweden and an expert on secret societies.
+
+“When he saw the book and the decoded version, he was very excited about it,” Dr. Knight said. “He found a political commentary at the end that talked about the natural rights of man. That was pretty interesting and early.”
+
+Modern examples of challenging ciphers include the communications the Zodiac killer sent to the police in California in the 1960s and ’70s, and the “Kryptos” sculpture, commissioned for the C.I.A. headquarters, which has been only partly decoded.
+
+But the white whale of the code-breaking world is the Voynich manuscript. Comprising 240 lavishly illustrated vellum pages, it has defied the world’s best code breakers. Though cryptographers have long wondered if it is a hoax, it was recently dated to the early 1400s.
+
+With a University of Chicago computer scientist, Dr. Knight this year published a detailed analysis of the manuscript that falls short of answering the hoax question, but does find some evidence that it contains patterns that match the structure of natural language.
+
+“It’s been called the most mysterious manuscript in the world,” he said. “It’s super full of patterns, and so for somebody to have created something like that would have been a lot of work. So I feel that it’s probably a code.”
+
+In less than two months after a group of University of Washington computer researchers proposed a novel system for making electronic messages “disappear” after a certain period of time, a rival group of researchers based at the University of Texas at Austin, Princeton, and the University of Michigan, has claimed to have undermined the scheme.
+
+In July, the University of Washington team described an experimental system called “Vanish” predicated on the idea of scattering the parts of an encryption key on a publicly accessible peer-to-peer file sharing network in such a way that the key — a large number — would become unusable as pieces of it were lost from the network.
+
+The Vanish researchers had argued that increasingly in a networked world sensitive discussions involving something like a divorce or a lawsuit threaten users’ privacy when they are archived on multiple systems. Encrypting such messages is only a partial solution, the researchers argued, because encryption systems can be broken or keys can be subpoenaed. Therefore, it is virtually impossible to reliably delete information that has been transmitted via the Internet.
+
+The Vanish attackers have created a demonstration system they call “Unvanish” and they said they had undone the Vanish model for gradually eroding encryption keys by subverting the peer-to-peer file sharing system. Their insight was to use a single computer to masquerade as a large number of members of a file sharing network. That rogue machine would simply need to capture and store anything that looked like a Vanish key fragment. The researchers said that this was simple, as the Vanish fragments are identifiable because of their size. Later it would be possible to reconstruct a Vanish message by simply consulting the Unvanish archive.
+
+“In our experiments with Unvanish, we have shown that it is possible to make Vanish messages ‘reappear’ long after they should have ‘disappeared’
+
+nearly 100 percent of the time,” the researchers wrote on a Web site that describes their experiment.
+Newsletter Sign Up
+Continue reading the main story
+Science Times
+
+We’ll bring you stories that capture the wonders of the human body, nature and the cosmos.
+
+
+
+SAN FRANCISCO, Nov. 16 — One of the world’s most prominent cryptographers issued a warning on Friday about a hypothetical incident in which a math error in a widely used computing chip places the security of the global electronic commerce system at risk.
+
+Adi Shamir, a professor at the Weizmann Institute of Science in Israel, circulated a research note about the problem to a small group of colleagues. He wrote that the increasing complexity of modern microprocessor chips is almost certain to lead to undetected errors.
+
+Historically, the risk has been demonstrated in incidents like the discovery of an obscure division bug in Intel’s Pentium microprocessor in 1994 and, more recently, in a multiplication bug in Microsoft’s Excel spreadsheet program, he wrote.
+
+A subtle math error would make it possible for an attacker to break the protection afforded to some electronic messages by a popular technique known as public key cryptography.
+
+Using this approach, a message can be scrambled using a publicly known number and then unscrambled with a secret, privately held number.
+Continue reading the main story
+
+The technology makes it possible for two people who have never met to exchange information securely, and it is the basis for all kinds of electronic transactions.
+
+Mr. Shamir wrote that if an intelligence organization discovered a math error in a widely used chip, then security software on a PC with that chip could be “trivially broken with a single chosen message.”
+Photo
+Adi Shamir, a cryptographer and professor in Israel. Credit Gabriel Bouys/Agence France-Presse — Getty Images
+
+Executing the attack would require only knowledge of the math flaw and the ability to send a “poisoned” encrypted message to a protected computer, he wrote. It would then be possible to compute the value of the secret key used by the targeted system.
+
+With this approach, “millions of PC’s can be attacked simultaneously, without having to manipulate the operating environment of each one of them individually,” Mr. Shamir wrote.
+
+The research note is significant, cryptographers said, in part because of Mr. Shamir’s role in designing the RSA public key algorithm, software that is widely used to protect e-commerce transactions from hackers.
+Newsletter Sign Up
+Continue reading the main story
+Interested in All Things Tech?
+
+The daily Bits newsletter will keep you updated on the latest from Silicon Valley and the technology industry, plus exclusive analysis from our reporters and editors.
+You agree to receive occasional updates and special offers for The New York Times's products and services.
+
+    See Sample Privacy Policy Opt out or contact us anytime 
+
+“The remarkable thing about this note is that Adi Shamir is saying that RSA is potentially vulnerable,” said Jean-Jacques Quisquater, a professor and cryptographic researcher at the Universite Catholique de Louvain in Belgium.
+
+Mr. Shamir is the S in RSA; he, Ronald Rivest and Leonard Adleman developed it in 1977.
+
+Because the exact workings of microprocessor chips are protected by laws governing trade secrets, it is difficult, if not impossible, to verify that they have been correctly designed, Mr. Shamir wrote.
+
+“Even if we assume that Intel had learned its lesson and meticulously verified the correctness of its multipliers,” he said, “there are many smaller manufacturers of microprocessors who may be less careful with their design.”
+
+The class of problem that Mr. Shamir described has been deeply explored by cryptography experts, said Paul Kocher, who is president of Cryptography Research, a consulting and design firm in San Francisco. However, he added that it illustrated how small flaws could subvert even the strongest security.
+
+An Intel spokesman noted that the flaw was a theoretical one and something that required a lot of contingencies.
+
+“We appreciate these and we look at everything,” said George Alfs, an Intel spokesman.
+
+In e-mail correspondence after he sent the note, Mr. Shamir said he had no evidence that anyone is using an attack like the one he described.
+
+For nearly 16 years, puzzle enthusiasts have labored to decipher an 865-character coded message stenciled into a sculpture on the grounds of the Central Intelligence Agency's headquarters in Langley, Va. This week, the sculptor gave them an unsettling but hopeful surprise: part of the message they thought they had deciphered years ago actually says something else.
+
+The sculpture, titled "Kryptos," the Greek word for "hidden," includes an undulating sheet of copper with a message devised by the sculptor, Jim Sanborn, and Edward M. Scheidt, a retired chairman of the C.I.A.'s cryptographic center.
+
+The message is broken into four sections, and in 1999, a computer programmer named Jim Gillogly announced he had figured out the first three, which include poetic ramblings by the sculptor and an account of the opening of King Tut's tomb. The C.I.A. then announced that one of its physicists, David Stein, had also deciphered the first three sections a year earlier.
+
+On Wednesday afternoon, Mr. Sanborn left a phone message for Elonka Dunin, a computer game developer who also runs an e-mail list for enthusiasts trying to solve the "Kryptos" puzzle. For the first time, Mr. Sanborn had done a line-by-line analysis of his text with what Mr. Gillogly and Mr. Stein had offered as the solution and discovered that part of the solved text was incorrect.
+
+Within minutes, Ms. Dunin called back, and Mr. Sanborn told her that in the second section, one of the X's he had used as a separator between sentences had been omitted, altering the solution. "He was concerned that it had been widely published incorrectly," Ms. Dunin said.
+Continue reading the main story
+
+Mr. Sanborn's admission was first reported Thursday by Wired News.
+
+Ms. Dunin excitedly started sending instant messages online to Chris Hanson, the co-moderator of the "Kryptos" e-mail group. Within an hour, Ms. Dunin figured out what was wrong. The last eight characters of the second section, which describes something possibly hidden on C.I.A. grounds, had been decoded as "IDBYROWS" which people read as "I.D. by rows" or "I.D. by Row S."
+
+In an interview yesterday, Mr. Sanborn said he had never meant that at all. To give himself flexibility as he carved the letters into the copper sheet, he had marked certain letters that could be left out. In the second passage, he left out an X separator before these eight letters.
+
+"It was purely an act of aesthetics on my part," he said.
+
+He said he expected that the encryption method, which relies on the position of the letters, would transform that part of the message into gibberish, and that the solvers would know to go back and reinsert the missing separator. But "remarkably, when you used the same system, it said something that was intelligible," Mr. Sanborn said. He decided to let the code breakers know about the error because "they weren't getting the whole story," he said.
+
+When Ms. Dunin reinserted the X, the eight characters became "LAYERTWO." She called Mr. Sanborn again, who confirmed that was the intended message. "It's a surprise, and it's exciting," Ms. Dunin said. That is the first real progress on "Kryptos" in more than six years. Now to figure out what it means.
+
+In an e-mail interview, Mr. Gillogly said that the corrected text, "layer two," is "intriguing but scarcely definitive." He added, "Like much of the sculpture, it can be taken in many ways." Mr. Gillogly, who has not worked much on the puzzle in recent years, said he would go back to see if the answer was now apparent.
+
+One possibility is that "layer two" is the crucial key for solving the rest of the puzzle. Or it could be a hint that the letters need to be layered atop one another. Mr. Sanborn and Mr. Scheidt have said that even when all of the text is unraveled, other puzzles will remain in "Kryptos."
+
+"This new discovery could possibly make it easier to crack and possibly not make it easier to crack," Mr. Sanborn offered unhelpfully. "It may be a dead-end diversion I like to send people on, a primrose lane to nowhere."
+
+Mr. Scheidt said it had taken only three or four months to devise a puzzle that has lasted nearly 16 years, adding that only he, Mr. Sanborn and "probably someone at C.I.A." know the answer.
+
+For everyone else, the remaining 97 letters of the fourth section remain baffling (the slashes indicate line breaks):
+
+The challenge of identifying blacked-out words came to Mr. Naccache as he watched television news on Easter weekend, he said in a telephone interview last Friday.
+
+''The pictures of the blacked-out words appeared on my screen, and it piqued my interest as a cryptographer,'' he said. He then discussed possible solutions to the problem with Ms. Whelan, whom he is supervising as a graduate adviser, and she quickly designed a series of software programs to use in analyzing the documents.
+
+Although Mr. Naccache is the director of Gemplus, a large information security laboratory, he said that the research was done independently from his work there.
+
+The technique he and Ms. Whelan developed involves first using a program to realign the document, which had been placed on a copying machine at a slight angle. They determined that the document had been tilted by about half a degree.
+
+By realigning the document it was possible to use another program Ms. Whelan had written to determine that it had been formatted in the Arial font. Next, they found the number of pixels that had been blacked out in the sentence: ''An Egyptian Islamic Jihad (EIJ) operative told an xxxxxxxx service at the same time that Bin Ladin was planning to exploit the operative's access to the US to mount a terrorist strike.'' They then used a computer to determine the pixel length of words in the dictionary when written in the Arial font.
+
+The program rejected all of the words that were not within three pixels of the length of the word that was probably under the blackened-out area in the document.
+
+The software then reduced the number of possible words to just 7 from 1,530 by using semantic guidelines, including the grammatical context. The researchers selected the word ''Egyptian'' from the seven possible words, rejecting ''Ukrainian'' and ''Ugandan,'' because those countries would be less likely to have such information.
+
+After the presentation at Eurocrypt, the researchers discussed possible measures that government agencies could take to make identifying blacked-out words more difficult, Mr. Naccache said in the phone interview. One possibility, he said, would be for agencies to use optical character recognition technology to rescan documents and alter fonts.
+
+In January, the State Department required that its documents use a more modern font, Times New Roman, instead of Courier, Mr. Naccache said. Because Courier is a monospace font, in which all letters are of the same width, it is harder to decipher with the computer technique. There is no indication that the State Department knew that.
+
+Experts on the Freedom of Information Act said they feared the computer technique might be used as an excuse by government agencies to release even more restricted versions of documents.
+
+''They have exposed a technique that may now become less and less useful as a result,'' said Steven Aftergood, a senior research analyst at the Federation of American Scientists, of the research project. ''We care because there are all kinds of things withheld by government agencies improperly.''
+
+BALTIMORE - Matthew Green starts his 2005 Ford Escape with a duplicate key he had made at Lowe's. Nothing unusual about that, except that the automobile industry has spent millions of dollars to keep him from being able to do it.
+
+Mr. Green, a graduate student at Johns Hopkins University, is part of a team that plans to announce on Jan. 29 that it has cracked the security behind "immobilizer" systems from Texas Instruments Inc. The systems reduce car theft, because vehicles will not start unless the system recognizes a tiny chip in the authorized key. They are used in millions of Fords, Toyotas and Nissans.
+
+All that would be required to steal a car, the researchers said, is a moment next to the car owner to extract data from the key, less than an hour of computing, and a few minutes to break in, feed the key code to the car and hot-wire it.
+
+An executive with the Texas Instruments division that makes the systems did not dispute that the Hopkins team had cracked its code, but said there was much more to stealing a car than that. The devices, said the executive, Tony Sabetti, "have been fraud-free and are likely to remain fraud-free."
+
+The implications of the Hopkins finding go beyond stealing cars.
+
+Variations on the technology used in the chips, known as RFID for radio frequency identification, are widely used. Similar systems deduct highway tolls from drivers' accounts and restrict access to workplaces.
+
+Wal-Mart is using the technology to track inventory, the Food and Drug Administration is considering it to foil drug counterfeiting, and the medical school at the University of California, Los Angeles, plans to implant chips in cadavers to curtail unauthorized sale of body parts.
+
+The Johns Hopkins researchers say that if other radio frequency ID systems are vulnerable, the new field could offer far less security than its proponents promise.
+
+The computer scientists are not doing R.&D. for the Mafia. Aviel D. Rubin, a professor of computer science who led the team, said his three graduate students did what security experts often do: showed the lack of robust security in important devices that people use every day.
+
+"What we find time and time again is the security is overlooked and not done right," said Dr. Rubin, who has exposed flaws in electronic voting systems and wireless computer networks.
+
+David Wagner, an assistant professor of computer science at the University of California, Berkeley, who reviewed a draft of a paper by the Hopkins team, called it "great research," adding, "I see it as an early warning" for all radio frequency ID systems.
+
+The "immobilizer" technology used in the keys has been an enormous success. Texas Instruments alone has its chips in an estimated 150 million keys. Replacing the key on newer cars can cost hundreds of dollars, but the technology is credited with greatly reducing auto theft. -- Early versions of in-key chips were relatively easy to clone, but the Texas Instruments chips are considered to be among the best. Still, the amount of computing the chip can do is restricted by the fact that it has no power of its own; it builds a slight charge from an electromagnetic field from the car's transmitter.
+
+Cracking the system took the graduate students three months, Dr. Rubin said. "There was a lot of trial and error work with, every once in a while, a little 'Aha!"'
+
+The Hopkins researchers got unexpected help from Texas Instruments itself. They were able to buy a tag reader directly from the company, which sells kits for $280 on its Web site. They also found a general diagram on the Internet, from a technical presentation by the company's German division. The researchers wrote in the paper describing their work that the diagram provided "a useful foothold" into the system. (The Hopkins paper, which is online at www.rfidanalysis.org, does not provide information that might allow its work to be duplicated.
+
+The researchers discovered a critically important fact: the encryption algorithm used by the chip to scramble the challenge uses a relatively short code, known as a key. The longer the code key, which is measured in bits, the harder it is to crack any encryption system.
+
+"If you were to tell a cryptographer that this system uses 40-bit keys, you'd immediately conclude that the system is weak and that you'd be able to break it," said Ari Juels, a scientist with the research arm of RSA Security, which financed the team and collaborated with it.
+
+The team wrote software that mimics the system, which works through a pattern of challenge and response. The researchers took each chip they were trying to clone and fed it challenges, and then tried to duplicate the response by testing all 1,099,511,627,776 possible encryption keys. Once they had the right key, they could answer future challenges correctly.
+
+Mr. Sabetti of Texas Instruments argues that grabbing the code from a key would be very difficult, because the chips have a very short broadcast range. The greatest distance that his company's engineers have managed in the laboratory is 12 inches, and then only with large antennas that require a power source.
+
+Dr. Rubin acknowledged that his team had been able to read the keys just a few inches from a reader, but said many situations could put an attacker and a target in close proximity, including crowded elevators.
+
+The researchers used several thousand dollars of off-the-shelf computer equipment to crack the code, and had to fill a back seat of Mr. Green's S.U.V. with computers and other equipment to successfully imitate a key. But the cost of equipment could be brought down to several hundred dollars, Dr. Rubin said, and Adam Stubblefield, one of the Hopkins graduate students, said, "We think the entire attack could be done with a device the size of an iPod."
+
+The Texas Instruments chips are also used in millions of the Speedpass tags that drivers use to buy gasoline at ExxonMobil stations without pulling out a credit card, and the researchers have shown that they can buy gas with a cracked code. A spokeswoman for ExxonMobil, Prem Nair, said the company used additional antifraud measures, including restrictions that only allow two gas purchases per day.
+
+"We strongly believe that the Speedpass devices and the checks that we have in place are much more secure than those using credit cards with magnetic stripes," she said.
+
+The team discussed its research with Texas Instruments before making the paper public. Matthew Buckley, a spokesman for RSA Security, said his company, which offers security consulting services and is developing radio frequency ID tags that resist unauthorized eavesdropping, had offered to work with Texas Instruments free of charge to address the security issues.
+
+Dr. Wagner said that what graduate students could do, organized crime could also do. "The white hats don't have a monopoly on cryptographic expertise," he said.
+
+Dr. Rubin said that if criminals did eventually duplicate his students' work, people could block eavesdroppers by keeping the key or Speedpass token in a tinfoil sheath when not in use. But Mr. Sabetti, the Texas Instruments executive, said such precautions were unnecessary. "It's a solution to a problem that doesn't exist," he said.
+
+Dan Bedore, a spokesman for Ford, said the company had confidence in the technology. "No security device is foolproof," he said, but "it's a very, very effective deterrent" to drive-away theft. "Flatbed trucks are a bigger threat," he said, "and a lot lower tech."
