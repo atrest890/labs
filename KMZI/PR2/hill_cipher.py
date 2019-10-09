@@ -63,24 +63,15 @@ def getMatrix2(key):
     return matrix
 
 
-def hillEncrypt(plaintext, key):
-    key_matrix = getMatrix2(key)
-    plain_matrix = getPlainMatrix(plaintext, len(key))
-    encrypted_text = ''
+def hillEncrypt(textMatrix, keyMatrix):
+    encMatrix = np.matmul(textMatrix, keyMatrix)
+    encMatrix = np.remainder(encMatrix, POWER)
 
-    encrypted_matrix = np.matmul(plain_matrix, key_matrix)
-    encrypted_matrix = np.remainder(encrypted_matrix, POWER)
+    encText = ''
+    for row in encMatrix:
+        encText += ''.join( [ALPHABET[x] for x in row] )
 
-    for row in encrypted_matrix:
-        for i in row:
-            encrypted_text = ALPHABET[i]
-
-    # for row in plain_matrix:
-    #     mult_matrix = np.dot(key_matrix, row)
-    #     new_matrix = [x % POWER for x in mult_matrix]
-    #     encrypted_text += ''.join( [ALPHABET[x] for x in new_matrix] )
-        
-    return encrypted_text
+    return encText
 
 
 def hillDecrypt(encryptedText, key):
@@ -118,7 +109,7 @@ while True:
     else:
         break
 
-encryptedText = hillEncrypt(plaintext, key)
+encryptedText = hillEncrypt(textMatrix, keyMatrix)
 
 print("Encrypted text: {0}".format(encryptedText))
 
