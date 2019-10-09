@@ -1,6 +1,7 @@
 import math as m
 import numpy as np
 
+
 ALPHABET = ['a', 'b', 'c', 'd', 
             'e', 'f', 'g', 'h', 
             'i', 'j', 'k', 'l', 
@@ -18,9 +19,6 @@ def extendedEuclid(a, b):
     else:
         g, x, y = extendedEuclid(b % a, a)
         return (g, y - (b // a) * x, x)
-
-def getListFromStr(string):
-    return [x for x in string]
 
 
 def getPlainMatrix(plaintext, key_size):
@@ -66,14 +64,21 @@ def getMatrix2(key):
 
 
 def hillEncrypt(plaintext, key):
-    key_matrix = getMatrix(key)
+    key_matrix = getMatrix2(key)
     plain_matrix = getPlainMatrix(plaintext, len(key))
     encrypted_text = ''
 
-    for row in plain_matrix:
-        mult_matrix = np.dot(key_matrix, row)
-        new_matrix = [x % POWER for x in mult_matrix]
-        encrypted_text += ''.join( [ALPHABET[x] for x in new_matrix] )
+    encrypted_matrix = np.matmul(plain_matrix, key_matrix)
+    encrypted_matrix = np.remainder(encrypted_matrix, POWER)
+
+    for row in encrypted_matrix:
+        for i in row:
+            encrypted_text = ALPHABET[i]
+
+    # for row in plain_matrix:
+    #     mult_matrix = np.dot(key_matrix, row)
+    #     new_matrix = [x % POWER for x in mult_matrix]
+    #     encrypted_text += ''.join( [ALPHABET[x] for x in new_matrix] )
         
     return encrypted_text
 
@@ -102,18 +107,20 @@ while True:
     plaintext = input("Input your text: ")
     key = input("Input your key: ")
 
-    if m.sqrt( len(key) ) - int( m.sqrt( len(key) ) ) != 0:
-        print("\nError: the length of your key is invalid - it must be a value from which the root can be extracted\n")
+    keyMatrix = np.array(getMatrix2(key))
+
+    if keyMatrix.shape[0] != keyMatrix.shape[1]:
+        print("\nError: key must be square matrix\n")
     else:
         break
 
-encryptedText = hillEncrypt(plaintext, getListFromStr(key.lower()))
+encryptedText = hillEncrypt(plaintext, key)
 
 print("Encrypted text: {0}".format(encryptedText))
 
-decryptedText = hillDecrypt(encryptedText, getListFromStr(key))
+# decryptedText = hillDecrypt(encryptedText, getListFromStr(key))
 
-print("Decrypted text: {0}".format(decryptedText))
+# print("Decrypted text: {0}".format(decryptedText))
 
 
 
