@@ -1,5 +1,6 @@
 import math as m
 import numpy as np
+from sympy import Matrix
 
 
 ALPHABET = ['a', 'b', 'c', 'd', 
@@ -61,6 +62,10 @@ def getMatrix2(key):
         matrix.append( [ ALPHABET.index(x) for x in key[pos::n]] )
 
     return matrix
+
+def getInverseKey(key):
+    inverseKey = Matrix(key).inv_mod(POWER)
+    return np.array(inverseKey)
 
 
 def hillEncrypt(textMatrix, keyMatrix):
