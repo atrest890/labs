@@ -107,7 +107,11 @@ while True:
     plaintext = input("Input your text: ")
     key = input("Input your key: ")
 
+    textMatrix = np.array(getPlainMatrix(plaintext, len(key)))
+    print("Plain text matrix is\n", textMatrix)
+
     keyMatrix = np.array(getMatrix2(key))
+    print("\nKey matrix is\n", keyMatrix)
 
     if keyMatrix.shape[0] != keyMatrix.shape[1]:
         print("\nError: key must be square matrix\n")
