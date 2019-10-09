@@ -12,6 +12,12 @@ ALPHABET = ['a', 'b', 'c', 'd',
 
 POWER = len(ALPHABET)
 
+def extendedEuclid(a, b):
+    if a == 0:
+        return (b, 0, 1)
+    else:
+        g, x, y = extendedEuclid(b % a, a)
+        return (g, y - (b // a) * x, x)
 
 def getListFromStr(string):
     return [x for x in string]
