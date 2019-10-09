@@ -65,7 +65,8 @@ def getMatrix2(key):
 
 def getInverseKey(key):
     inverseKey = Matrix(key).inv_mod(POWER)
-    return np.array(inverseKey)
+
+    return np.array(inverseKey, dtype=int)
 
 
 def hillEncrypt(textMatrix, keyMatrix):
@@ -74,25 +75,17 @@ def hillEncrypt(textMatrix, keyMatrix):
 
     encText = ''
     for row in encMatrix:
-        encText += ''.join( [ALPHABET[x] for x in row] )
+        encText += ''.join( [ALPHABET[i] for i in row] )
 
     return encText
 
 
-def hillDecrypt(encryptedText, key):
-    encrypted_matrix = getMatrix2(encryptedText)
-    key_inv_matrix = np.linalg.inv( getMatrix2(key) )
-    temp = np.dot(key_inv_matrix, encrypted_matrix)
-    decrypted_matrix = [ (x % POWER).astype(int) for x in temp ]
-
-    decrypted_text = ''
-    for row in decrypted_matrix:
-        mult_matrix = np.dot(key_inv_matrix, row)
-        new_matrix = [x % POWER for x in mult_matrix]
-        decrypted_text = ''.join( [ALPHABET[x] for x in new_matrix] )
-
-    return decrypted_text
+def hillDecrypt(text, key):
+    inverseKey = getInverseKey(key)
+    decMatrix = np.matmul(text, inverseKey)
+    decMatrix = np.remainder(decMatrix, POWER).flatten()
     
+    return ''.join( [ALPHABET[i] for i in decMatrix] )
 
 
 plaintext = ''
@@ -118,9 +111,11 @@ encryptedText = hillEncrypt(textMatrix, keyMatrix)
 
 print("Encrypted text: {0}".format(encryptedText))
 
-# decryptedText = hillDecrypt(encryptedText, getListFromStr(key))
+encryptedMatrix = np.array(getMatrix(encryptedText))
 
-# print("Decrypted text: {0}".format(decryptedText))
+decryptedText = hillDecrypt(encryptedMatrix, keyMatrix)
+
+print("Decrypted text: {0}".format(decryptedText))
 
 
 
