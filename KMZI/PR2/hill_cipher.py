@@ -14,13 +14,6 @@ ALPHABET = ['a', 'b', 'c', 'd',
 
 POWER = len(ALPHABET)
 
-def extendedEuclid(a, b):
-    if a == 0:
-        return (b, 0, 1)
-    else:
-        g, x, y = extendedEuclid(b % a, a)
-        return (g, y - (b // a) * x, x)
-
 
 def getPlainMatrix(plaintext, key_size):
     matrix = []
@@ -116,7 +109,3 @@ encryptedMatrix = np.array(getMatrix(encryptedText))
 decryptedText = hillDecrypt(encryptedMatrix, keyMatrix)
 
 print("Decrypted text: {0}".format(decryptedText))
-
-
-
-
