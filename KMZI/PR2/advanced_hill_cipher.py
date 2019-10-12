@@ -33,8 +33,12 @@ def getPlainMatrix(plaintext, key_size):
     return matrix
 
 
-def getNewKey(key1, key2):
-    return np.matmul(key1, key2)
+def getNewKey(key2, key1):
+    return np.matmul(key2, key1)
+
+
+def getNewInverseKey(inv_key1, inv_key2):
+    return np.matmul(inv_key1, inv_key2)
 
 
 while True:
