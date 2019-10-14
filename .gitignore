@@ -1,0 +1,5 @@
+# exclude vscode configs
+KMZI/PR2/.vscode
+
+# exclude text files
+*.txt
