@@ -18,6 +18,9 @@ ALPHABET = ['a', 'b', 'c', 'd',
 
 POWER = len(ALPHABET)
 
+# TODO: add checking on text length
+# TODO: add checking on matrix reversibility
+
 def addSymbols(text, size):
     while sqrt(len(text)) != size:
         text += ALPHABET[-1]
