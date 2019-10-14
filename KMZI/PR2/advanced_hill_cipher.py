@@ -1,5 +1,8 @@
-import math as m
-import numpy as np
+from math import sqrt
+from numpy.linalg import inv
+from numpy import matmul
+from numpy import remainder
+from numpy import array
 from sympy import Matrix
 
 
@@ -12,108 +15,101 @@ ALPHABET = ['a', 'b', 'c', 'd',
             'y', 'z', ' ', ',',
             '.']
 
+
 POWER = len(ALPHABET)
 
+def addSymbols(text, size):
+    while sqrt(len(text)) != size:
+        text += ALPHABET[-1]
 
-def getPlainMatrix(plaintext, key_size):
-    matrix = []
-    n = int( m.sqrt(key_size) )
+    return text
 
-    index1 = 0
-    index2 = n
-
-    while int( len(plaintext) / key_size ) == 0:
-        plaintext += ALPHABET[26]
-
-    while index1 != len(plaintext):
-        matrix.append( [ ALPHABET.index(x) for x in plaintext[index1 : index2] ] )
-        index1 = index2
-        index2 += n
-
-    return matrix
-
-def getMatrix(key):
-    n = int( m.sqrt( len(key) ) )
+def fromTextToMatrix(text):
+    n = int(sqrt(len(text)))
     matrix = []
 
-    index1 = 0
-    index2 = n
+    for pos in range(0, len(text), n):
+        matrix.append([ALPHABET.index(x) for x in text[pos:pos+n]])
 
-    while index1 != len(key):
-        matrix.append( [ ALPHABET.index(x) for x in key[index1 : index2] ] )
-        index1 = index2
-        index2 += n
-
-    return matrix
-
-def getMatrix2(key):
-    n = int( m.sqrt( len(key) ) )
-    matrix = []
-
-    for pos in range(0, n):
-        matrix.append( [ ALPHABET.index(x) for x in key[pos::n]] )
-
-    return matrix
+    return array(matrix)
 
 
 def getNewKey(key2, key1):
-    return np.matmul(key2, key1)
+    return matmul(key2, key1)
 
 
-def getNewInverseKey(inv_key1, inv_key2):
-    return np.matmul(inv_key1, inv_key2)
+def getNewInverseKey(key1, key2):
+    return array(Matrix(matmul(key1, key2)).inv_mod(POWER), dtype=int)
 
 
-def getInverseKey(key):
-    inverseKey = Matrix(key).inv_mod(POWER)
-
-    return np.array(inverseKey, dtype=int)
-
-def hillEncrypt(textMatrix, keyMatrix):
-    encMatrix = np.matmul(textMatrix, keyMatrix)
-    encMatrix = np.remainder(encMatrix, POWER)
-
-    encText = ''
-    for row in encMatrix:
-        encText += ''.join( [ALPHABET[i] for i in row] )
-
-    return encText
+def fromMatrixToText(matrix):
+    return ''.join([x for x in array(matrix).flatten()])
 
 
-def hillDecrypt(text, key):
-    inverseKey = getInverseKey(key)
-    decMatrix = np.matmul(text, inverseKey)
-    decMatrix = np.remainder(decMatrix, POWER).flatten()
-    
-    return ''.join( [ALPHABET[i] for i in decMatrix] )
+def encrypt(text, key1, key2):
+    key1, key2 = fromTextToMatrix(key1), fromTextToMatrix(key2)
+    matrix = fromTextToMatrix(text)
+    new_matrix = []
+
+    n = int(sqrt(len(text)))
+
+    for i in range(0, n):
+        if i == 0:
+            new_block = matmul(key1, matrix[0])
+
+        elif i == 1:
+            new_block = matmul(key2, matrix[1])
+
+        else:
+            new_key = getNewKey(key2, key1)
+            new_block = matmul(new_key, matrix[i])
+            key1 = key2
+            key2 = new_key
+
+        new_block = remainder(new_block, POWER)
+        new_matrix.append([ALPHABET[i] for i in new_block])
+
+    return fromMatrixToText(new_matrix)
+
+def to_array(matrix):
+    return array(matrix, dtype=int)
+
+def inv_mod(matrix):
+    return array(matrix.inv_mod(POWER), dtype=int)
+
+def decrypt(text, key1, key2):
+    key1 = Matrix(fromTextToMatrix(key1))
+    key2 = Matrix(fromTextToMatrix(key2))
+    matrix = fromTextToMatrix(text)
+    new_matrix = []
+
+    n = int(sqrt(len(text)))
+
+    for i in range(0, n):
+        if i == 0:
+            new_block = matmul(inv_mod(key1), matrix[0])
+        elif i == 1:
+            new_block = matmul(inv_mod(key2), matrix[1])
+        else:
+            new_key = Matrix(getNewKey(to_array(key2), to_array(key1)))
+            new_block = matmul(inv_mod(new_key), matrix[i])
+            key1 = key2
+            key2 = new_key
+
+        new_block = remainder(new_block, POWER)
+        new_matrix.append([ALPHABET[i] for i in new_block])
+
+    return fromMatrixToText(new_matrix)
 
 
-while True:
-    plaintext = input("Input your text: ")
-    key1 = input("Input your first key: ")
-    key2 = input("Input your second key: ")
+plaintext = input("Input your text: ")
+key1 = input("Input your first key: ")
+key2 = input("Input your second key: ")
 
-    textMatrix = np.array(getPlainMatrix(plaintext, len(key)))
-    print("Plain text matrix is\n", textMatrix)
+encrypted_text = encrypt(plaintext, key1, key2)
 
-    keyMatrix1 = np.array(getMatrix2(key1))
-    print("\nFirst key matrix is\n", keyMatrix1)
+print("Encrypted text: {0}".format(encrypted_text))
 
-    keyMatrix2 = np.array(getMatrix2(key2))
-    print("\nSecond key matrix is\n", keyMatrix2)
+decrypted_text = decrypt(encrypted_text, key1, key2)
 
-
-    if keyMatrix.shape[0] != keyMatrix.shape[1]:
-        print("\nError: key must be square matrix\n")
-    else:
-        break
-
-encryptedText = hillEncrypt(textMatrix, keyMatrix)
-
-print("Encrypted text: {0}".format(encryptedText))
-
-encryptedMatrix = np.array(getMatrix(encryptedText))
-
-decryptedText = hillDecrypt(encryptedMatrix, keyMatrix)
-
-print("Decrypted text: {0}".format(decryptedText))
+print("Decrypted text: {0}".format(decrypted_text))
