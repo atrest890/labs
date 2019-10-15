@@ -21,14 +21,19 @@ POWER = len(ALPHABET)
 # TODO: add checking on text length
 # TODO: add checking on matrix reversibility
 
-def addSymbols(text, size):
-    while sqrt(len(text)) != size:
+
+def is_multiple(text, n):
+    return len(text) % n == 0
+
+
+def addSymbols(text, n):
+    while len(text) % n != 0:
         text += ALPHABET[-1]
 
     return text
 
-def fromTextToMatrix(text):
-    n = int(sqrt(len(text)))
+
+def fromTextToMatrix(text, n):
     matrix = []
 
     for pos in range(0, len(text), n):
@@ -50,8 +55,9 @@ def fromMatrixToText(matrix):
 
 
 def encrypt(text, key1, key2):
-    key1, key2 = fromTextToMatrix(key1), fromTextToMatrix(key2)
-    matrix = fromTextToMatrix(text)
+    n = int(sqrt(len(key1)))
+    key1, key2 = fromTextToMatrix(key1, n), fromTextToMatrix(key2, n)
+    matrix = fromTextToMatrix(text, n)
     new_matrix = []
 
     n = int(sqrt(len(text)))
@@ -74,16 +80,20 @@ def encrypt(text, key1, key2):
 
     return fromMatrixToText(new_matrix)
 
+
 def to_array(matrix):
     return array(matrix, dtype=int)
+
 
 def inv_mod(matrix):
     return array(matrix.inv_mod(POWER), dtype=int)
 
+
 def decrypt(text, key1, key2):
-    key1 = Matrix(fromTextToMatrix(key1))
-    key2 = Matrix(fromTextToMatrix(key2))
-    matrix = fromTextToMatrix(text)
+    n = int(sqrt(len(key1)))
+    key1 = Matrix(fromTextToMatrix(key1, n))
+    key2 = Matrix(fromTextToMatrix(key2, n))
+    matrix = fromTextToMatrix(text, n)
     new_matrix = []
 
     n = int(sqrt(len(text)))
@@ -105,11 +115,49 @@ def decrypt(text, key1, key2):
     return fromMatrixToText(new_matrix)
 
 
-plaintext = input("Input your text: ")
-key1 = input("Input your first key: ")
-key2 = input("Input your second key: ")
+text = input("Input your text: ")
+while (True):
+    key1 = input("Input your first key: ")
+    n1 = sqrt(len(key1))
 
-encrypted_text = encrypt(plaintext, key1, key2)
+    if not n1.is_integer():
+        print("\nError: The first key length must have whole square\n")
+        continue
+
+    key2 = input("Input your second key: ")
+    n2 = sqrt(len(key2))
+
+    if not n2.is_integer():
+        print("\nError: The second key length must have whole square\n")
+        continue
+
+    n1, n2  = int(n1), int(n2)
+
+    if len(key1) != len(key2):
+        print("\nError: keys have different length\n")
+        continue
+
+    try:
+        Matrix(fromTextToMatrix(key1, n1)).inv()
+
+    except ValueError:
+        print("\nError: the first key matrix has det = 0; not invertible\n")
+        continue
+
+    try:
+        Matrix(fromTextToMatrix(key2, n2)).inv()
+
+    except ValueError:
+        print("\nError: the second key matrix has det = 0; not invertible\n")
+        continue
+
+
+    if not is_multiple(text, n1):
+        text = addSymbols(text, n2)
+
+    break
+
+encrypted_text = encrypt(text, key1, key2)
 
 print("Encrypted text: {0}".format(encrypted_text))
 
