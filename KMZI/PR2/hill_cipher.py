@@ -1,7 +1,9 @@
-import math as m
-import numpy as np
+from math import sqrt
+from numpy.linalg import inv
+from numpy import matmul
+from numpy import remainder
+from numpy import array
 from sympy import Matrix
-
 
 ALPHABET = ['a', 'b', 'c', 'd', 
             'e', 'f', 'g', 'h', 
@@ -12,100 +14,93 @@ ALPHABET = ['a', 'b', 'c', 'd',
             'y', 'z', ' ', ',',
             '.']
 
-POWER = len(ALPHABET)
+LENGTH = len(ALPHABET)
 
 
-def getPlainMatrix(plaintext, key_size):
-    matrix = []
-    n = int( m.sqrt(key_size) )
-
-    index1 = 0
-    index2 = n
-
-    while int( len(plaintext) / key_size ) == 0:
-        plaintext += ALPHABET[26]
-
-    while index1 != len(plaintext):
-        matrix.append( [ ALPHABET.index(x) for x in plaintext[index1 : index2] ] )
-        index1 = index2
-        index2 += n
-
-    return matrix
+def is_multiple(text, n):
+    return len(text) % n == 0
 
 
-def getMatrix(key):
-    n = int( m.sqrt( len(key) ) )
+def lengthen(text, n):
+    while len(text) % n != 0:
+        text += ALPHABET[-1]
+
+    return text
+
+
+def to_matrix(text, n):
     matrix = []
 
-    index1 = 0
-    index2 = n
+    for pos in range(0, len(text), n):
+        matrix.append([ALPHABET.index(x) for x in text[pos:pos+n]])
 
-    while index1 != len(key):
-        matrix.append( [ ALPHABET.index(x) for x in key[index1 : index2] ] )
-        index1 = index2
-        index2 += n
-
-    return matrix
-
-def getMatrix2(key):
-    n = int( m.sqrt( len(key) ) )
-    matrix = []
-
-    for pos in range(0, n):
-        matrix.append( [ ALPHABET.index(x) for x in key[pos::n]] )
-
-    return matrix
-
-def getInverseKey(key):
-    inverseKey = Matrix(key).inv_mod(POWER)
-
-    return np.array(inverseKey, dtype=int)
+    return array(matrix, dtype=int)
 
 
-def hillEncrypt(textMatrix, keyMatrix):
-    encMatrix = np.matmul(textMatrix, keyMatrix)
-    encMatrix = np.remainder(encMatrix, POWER)
-
-    encText = ''
-    for row in encMatrix:
-        encText += ''.join( [ALPHABET[i] for i in row] )
-
-    return encText
+def to_text(matrix):
+    return ''.join([ALPHABET[x] for x in array(matrix).flatten()])
 
 
-def hillDecrypt(text, key):
-    inverseKey = getInverseKey(key)
-    decMatrix = np.matmul(text, inverseKey)
-    decMatrix = np.remainder(decMatrix, POWER).flatten()
+def encrypt(text, key):
+    n = int(sqrt(len(key)))
+    matrix = to_matrix(text, n)
+    key = to_matrix(key, n)
+    new_matrix = []
+    m = len(text) // n
+
+    for i in range(0, m):
+        new_block = remainder(matmul(key, matrix[i]), LENGTH)
+        new_matrix.append(new_block)
+
+    return to_text(array(new_matrix, dtype=int))
+
+
+def decrypt(text, key):
+    n = int(sqrt(len(key)))
+    matrix = to_matrix(text, n)
+
+    print("Matrix:\n", matrix)
+
+    key = to_matrix(key, n)
+    inv_key = array(Matrix(key).inv_mod(LENGTH), dtype=int)
+    new_matrix = []
+    m = len(text) // n
     
-    return ''.join( [ALPHABET[i] for i in decMatrix] )
+    for i in range(0, m):
+        new_block = remainder(matmul(inv_key, matrix[i]), LENGTH)
+        new_matrix.append(new_block)
+
+    return to_text(array(new_matrix, dtype=int))
 
 
-plaintext = ''
-key = ''
-
-
-while True:
-    plaintext = input("Input your text: ")
+text = input("Input your text: ")
+while (True):
     key = input("Input your key: ")
+    n = sqrt(len(key))
 
-    textMatrix = np.array(getPlainMatrix(plaintext, len(key)))
-    print("Plain text matrix is\n", textMatrix)
+    if not n.is_integer():
+        print("\nError: The key is nonsquare\n")
+        continue
 
-    keyMatrix = np.array(getMatrix2(key))
-    print("\nKey matrix is\n", keyMatrix)
+    n = int(n)
 
-    if keyMatrix.shape[0] != keyMatrix.shape[1]:
-        print("\nError: key must be square matrix\n")
-    else:
-        break
+    try:
+        Matrix(to_matrix(key, n)).inv()
 
-encryptedText = hillEncrypt(textMatrix, keyMatrix)
+    except ValueError:
+        print("\nError: the key matrix has det = 0; not invertible\n")
+        continue
 
-print("Encrypted text: {0}".format(encryptedText))
 
-encryptedMatrix = np.array(getMatrix(encryptedText))
+    if not is_multiple(text, n):
+        text = lengthen(text, n)
 
-decryptedText = hillDecrypt(encryptedMatrix, keyMatrix)
+    break
 
-print("Decrypted text: {0}".format(decryptedText))
+encrypted_text = encrypt(text, key)
+
+print("Encrypted text: {0}".format(encrypted_text))
+
+decrypted_text = decrypt(encrypted_text, key)
+
+print("Decrypted text: {0}".format(decrypted_text))

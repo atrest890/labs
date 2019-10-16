@@ -16,24 +16,21 @@ ALPHABET = ['a', 'b', 'c', 'd',
             '.']
 
 
-POWER = len(ALPHABET)
-
-# TODO: add checking on text length
-# TODO: add checking on matrix reversibility
+LENGTH = len(ALPHABET)
 
 
 def is_multiple(text, n):
     return len(text) % n == 0
 
 
-def addSymbols(text, n):
+def lengthen(text, n):
     while len(text) % n != 0:
         text += ALPHABET[-1]
 
     return text
 
 
-def fromTextToMatrix(text, n):
+def to_matrix(text, n):
     matrix = []
 
     for pos in range(0, len(text), n):
@@ -42,27 +39,34 @@ def fromTextToMatrix(text, n):
     return array(matrix)
 
 
-def getNewKey(key2, key1):
+def new_key(key2, key1):
     return matmul(key2, key1)
 
 
-def getNewInverseKey(key1, key2):
-    return array(Matrix(matmul(key1, key2)).inv_mod(POWER), dtype=int)
+def new_inv_key(key1, key2):
+    return array(Matrix(matmul(key1, key2)).inv_mod(LENGTH), dtype=int)
 
 
-def fromMatrixToText(matrix):
+def to_text(matrix):
     return ''.join([x for x in array(matrix).flatten()])
 
 
 def encrypt(text, key1, key2):
     n = int(sqrt(len(key1)))
-    key1, key2 = fromTextToMatrix(key1, n), fromTextToMatrix(key2, n)
-    matrix = fromTextToMatrix(text, n)
+    key1, key2 = to_matrix(key1, n), to_matrix(key2, n)
+
+    print("Key 1:\n", key1)
+    print("Key 2:\n", key2)
+
+    matrix = to_matrix(text, n)
+
+    print("Plain matrix:\n", matrix)
+
     new_matrix = []
 
-    n = int(sqrt(len(text)))
+    m = len(text) // n
 
-    for i in range(0, n):
+    for i in range(0, m):
         if i == 0:
             new_block = matmul(key1, matrix[0])
 
@@ -70,15 +74,20 @@ def encrypt(text, key1, key2):
             new_block = matmul(key2, matrix[1])
 
         else:
-            new_key = getNewKey(key2, key1)
+            new_key = new_key(key2, key1)
             new_block = matmul(new_key, matrix[i])
             key1 = key2
             key2 = new_key
 
-        new_block = remainder(new_block, POWER)
+        new_block = remainder(new_block, LENGTH)
+
+        print("Key {0}:\n{1}".format(i, new_key))
+
+        print("New block {0}:\n{1}".format(i, new_block))
+
         new_matrix.append([ALPHABET[i] for i in new_block])
 
-    return fromMatrixToText(new_matrix)
+    return to_text(new_matrix)
 
 
 def to_array(matrix):
@@ -86,33 +95,34 @@ def to_array(matrix):
 
 
 def inv_mod(matrix):
-    return array(matrix.inv_mod(POWER), dtype=int)
+    return array(matrix.inv_mod(LENGTH), dtype=int)
 
 
 def decrypt(text, key1, key2):
     n = int(sqrt(len(key1)))
-    key1 = Matrix(fromTextToMatrix(key1, n))
-    key2 = Matrix(fromTextToMatrix(key2, n))
-    matrix = fromTextToMatrix(text, n)
+    key1 = Matrix(to_matrix(key1, n))
+    key2 = Matrix(to_matrix(key2, n))
+    matrix = to_matrix(text, n)
     new_matrix = []
 
     n = int(sqrt(len(text)))
+    m = len(text) // n
 
-    for i in range(0, n):
+    for i in range(0, m):
         if i == 0:
             new_block = matmul(inv_mod(key1), matrix[0])
         elif i == 1:
             new_block = matmul(inv_mod(key2), matrix[1])
         else:
-            new_key = Matrix(getNewKey(to_array(key2), to_array(key1)))
+            new_key = Matrix(new_key(to_array(key2), to_array(key1)))
             new_block = matmul(inv_mod(new_key), matrix[i])
             key1 = key2
             key2 = new_key
 
-        new_block = remainder(new_block, POWER)
+        new_block = remainder(new_block, LENGTH)
         new_matrix.append([ALPHABET[i] for i in new_block])
 
-    return fromMatrixToText(new_matrix)
+    return to_text(new_matrix)
 
 
 text = input("Input your text: ")
@@ -138,14 +148,14 @@ while (True):
         continue
 
     try:
-        Matrix(fromTextToMatrix(key1, n1)).inv()
+        Matrix(to_matrix(key1, n1)).inv()
 
     except ValueError:
         print("\nError: the first key matrix has det = 0; not invertible\n")
         continue
 
     try:
-        Matrix(fromTextToMatrix(key2, n2)).inv()
+        Matrix(to_matrix(key2, n2)).inv()
 
     except ValueError:
         print("\nError: the second key matrix has det = 0; not invertible\n")
@@ -153,7 +163,7 @@ while (True):
 
 
     if not is_multiple(text, n1):
-        text = addSymbols(text, n2)
+        text = lengthen(text, n2)
 
     break
 
