@@ -4,8 +4,13 @@ ALPHABET = ['a', 'b', 'c', 'd',
             'm', 'n', 'o', 'p',  
             'q', 'r', 's', 't', 
             'u', 'v', 'w', 'x', 
-            'y', 'z', ' ', ',',
-            '.']
+            'y', 'z']
 
 LENGTH = len(ALPHABET)
 
+def latin_square():
+    square = []
+    for i in range(LENGTH, 0, -1):
+        square.append([ALPHABET[LENGTH-i:] + ALPHABET[:-i]])
+
+    return square
