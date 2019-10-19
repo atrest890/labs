@@ -11,7 +11,7 @@ LENGTH = len(ALPHABET)
 def tabula_recta():
     square = []
     for i in range(LENGTH, 0, -1):
-        square.append([ALPHABET[LENGTH-i:] + ALPHABET[:-i]])
+        square.append(ALPHABET[LENGTH-i:] + ALPHABET[:-i])
 
     return square
 
@@ -21,3 +21,18 @@ def key(text, key_word):
         key_word += key_word[i%n]
 
     return key_word
+
+def encrypt(text, key):
+    square = tabula_recta()
+    new_text = ''
+    for i in range(0, len(text)):
+        n = ALPHABET.index(key[i])
+        m = ALPHABET.index(text[i])
+        new_text += square[n][m]
+
+    return new_text
+
+
+encrypt('attackatdawn', 'lemonlemonle')
+
+print(tabula_recta()[0])
