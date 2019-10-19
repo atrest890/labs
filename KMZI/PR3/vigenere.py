@@ -14,3 +14,10 @@ def tabula_recta():
         square.append([ALPHABET[LENGTH-i:] + ALPHABET[:-i]])
 
     return square
+
+def key(text, key_word):
+    n = len(key_word)
+    for i in range(n, len(text)):
+        key_word += key_word[i%n]
+
+    return key_word
