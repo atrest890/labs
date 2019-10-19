@@ -38,4 +38,15 @@ def decrypt(text, key):
 
     return new_text
 
+text = input("Input your text: ")
+symbol = input("Input your symbol: ")
+key = autokey(text, symbol)
+text = encrypt(text, key)
+
+print("Encrypted text: {}".format(text))
+
+text = decrypt(text, key)
+
+print("Decrypted text: {}".format(text))
+
 
