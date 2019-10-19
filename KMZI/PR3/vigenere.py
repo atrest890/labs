@@ -8,7 +8,7 @@ ALPHABET = ['a', 'b', 'c', 'd',
 
 LENGTH = len(ALPHABET)
 
-def latin_square():
+def tabula_recta():
     square = []
     for i in range(LENGTH, 0, -1):
         square.append([ALPHABET[LENGTH-i:] + ALPHABET[:-i]])
