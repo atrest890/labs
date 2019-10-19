@@ -8,3 +8,14 @@ ALPHABET = ['a', 'b', 'c', 'd',
 
 LENGTH = len(ALPHABET)
 
+def tabula_recta():
+    square = []
+    for i in range(LENGTH, 0, -1):
+        square.append(ALPHABET[LENGTH-i:] + ALPHABET[:-i])
+
+    return square
+
+def autokey(text, symbol):
+    return symbol + text[:len(text)-1]
+
+
