@@ -28,4 +28,14 @@ def encrypt(text, key):
 
     return new_text
 
+def decrypt(text, key):
+    square = tabula_recta()
+    new_text = ''
+    for i in range(0, len(text)):
+        n = ALPHABET.index(key[i])
+        m = ALPHABET.index(text[i])
+        new_text += square[-n][m]
+
+    return new_text
+
 
