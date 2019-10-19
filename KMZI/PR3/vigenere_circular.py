@@ -15,12 +15,12 @@ def tabula_recta():
 
     return square
 
-def key(text, key_word):
-    n = len(key_word)
+def key(text, keyword):
+    n = len(keyword)
     for i in range(n, len(text)):
-        key_word += key_word[i%n]
+        keyword += keyword[i%n]
 
-    return key_word
+    return keyword
 
 def encrypt(text, key):
     square = tabula_recta()
@@ -40,7 +40,15 @@ def decrypt(text, key):
         m = ALPHABET.index(text[i])
         new_text += square[-n][m]
 
+    return new_text
 
-text = encrypt('attackatdawn', 'lemonlemonle')
 
-decrypt(text, 'lemonlemonle')
+text = input("Input your text: ")
+keyword = input("Input your keyword: ")
+text = encrypt(text, key(text, keyword))
+
+print("Encrypted text: {}".format(text))
+
+text = decrypt(text, key(text, keyword))
+
+print("Decrypted text: {}".format(text))
