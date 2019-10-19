@@ -45,10 +45,11 @@ def decrypt(text, key):
 
 text = input("Input your text: ")
 keyword = input("Input your keyword: ")
-text = encrypt(text, key(text, keyword))
+key = key(text, keyword)
+text = encrypt(text, key)
 
 print("Encrypted text: {}".format(text))
 
-text = decrypt(text, key(text, keyword))
+text = decrypt(text, key)
 
 print("Decrypted text: {}".format(text))
