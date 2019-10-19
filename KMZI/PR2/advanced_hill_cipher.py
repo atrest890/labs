@@ -98,7 +98,7 @@ def decrypt(text, key1, key2):
 
     # print("C Matrix:\n{0}".format(matrix))
 
-    n = int(sqrt(len(key)))
+    n = int(sqrt(len(key1)))
     m = len(text) // n
 
     for i in range(0, m):
