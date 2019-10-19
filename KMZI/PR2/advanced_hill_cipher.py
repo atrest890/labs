@@ -55,12 +55,7 @@ def encrypt(text, key1, key2):
     n = int(sqrt(len(key1)))
     key1, key2 = to_matrix(key1, n), to_matrix(key2, n)
 
-    print("Key 1:\n", key1)
-    print("Key 2:\n", key2)
-
     matrix = to_matrix(text, n)
-
-    print("Plain matrix:\n", matrix)
 
     new_matrix = []
 
@@ -74,16 +69,12 @@ def encrypt(text, key1, key2):
             new_block = matmul(key2, matrix[1])
 
         else:
-            new_key = new_key(key2, key1)
-            new_block = matmul(new_key, matrix[i])
+            key_i = new_key(key2, key1)
+            new_block = matmul(key_i, matrix[i])
             key1 = key2
-            key2 = new_key
+            key2 = key_i
 
         new_block = remainder(new_block, LENGTH)
-
-        print("Key {0}:\n{1}".format(i, new_key))
-
-        print("New block {0}:\n{1}".format(i, new_block))
 
         new_matrix.append([ALPHABET[i] for i in new_block])
 
@@ -105,22 +96,33 @@ def decrypt(text, key1, key2):
     matrix = to_matrix(text, n)
     new_matrix = []
 
-    n = int(sqrt(len(text)))
+    # print("C Matrix:\n{0}".format(matrix))
+
+    n = int(sqrt(len(key)))
     m = len(text) // n
 
     for i in range(0, m):
         if i == 0:
             new_block = matmul(inv_mod(key1), matrix[0])
+            # print("Key {0}:\n{1}".format(i, inv_mod(key1)))
         elif i == 1:
             new_block = matmul(inv_mod(key2), matrix[1])
+            # print("Key {0}:\n{1}".format(i, inv_mod(key2)))
         else:
-            new_key = Matrix(new_key(to_array(key2), to_array(key1)))
-            new_block = matmul(inv_mod(new_key), matrix[i])
+            key_i = Matrix(new_key(to_array(key2), to_array(key1)))
+            new_block = matmul(inv_mod(key_i), matrix[i])
             key1 = key2
-            key2 = new_key
+            key2 = key_i
+
+            # print("Key {0}:\n{1}".format(i, inv_mod(key_i)))
 
         new_block = remainder(new_block, LENGTH)
+
+        # print("Block {0}:\n{1}".format(i, new_block))
+
         new_matrix.append([ALPHABET[i] for i in new_block])
+
+    # print("P Matrix:\n{}".format(new_matrix))
 
     return to_text(new_matrix)
 
