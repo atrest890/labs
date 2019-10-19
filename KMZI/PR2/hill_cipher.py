@@ -50,6 +50,9 @@ def encrypt(text, key):
 
     for i in range(0, m):
         new_block = remainder(matmul(key, matrix[i]), LENGTH)
+
+        # print("Block {0}:\n{1}".format(i, new_block))
+
         new_matrix.append(new_block)
 
     return to_text(array(new_matrix, dtype=int))
@@ -59,7 +62,7 @@ def decrypt(text, key):
     n = int(sqrt(len(key)))
     matrix = to_matrix(text, n)
 
-    print("Matrix:\n", matrix)
+    # print("Matrix:\n", matrix)
 
     key = to_matrix(key, n)
     inv_key = array(Matrix(key).inv_mod(LENGTH), dtype=int)
@@ -68,6 +71,9 @@ def decrypt(text, key):
     
     for i in range(0, m):
         new_block = remainder(matmul(inv_key, matrix[i]), LENGTH)
+
+        # print("Block {0}:\n{1}".format(i, new_block))
+
         new_matrix.append(new_block)
 
     return to_text(array(new_matrix, dtype=int))
